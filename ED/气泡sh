@@ -1,0 +1,26 @@
+#!/bin/bash
+
+ED_DIR="./ED"
+source_dir="源图片文件夹路径"
+k_source_dir="目标图片文件夹路径"
+result_file="./气泡图map-ed/fv292/3840/RGBLensLock/result.txt"
+temp_result_file="./气泡图map-ed/fv292/3840/RGBLensLock/temp_result.txt"
+
+cp "$result_file" "$temp_result_file"
+> "$result_file"
+cd "$ED_DIR"
+
+index=1
+for img_folder in "${source_dir}"/*; do
+    img_name=$(basename "${img_folder}")
+    ./run.sh -i "$img_folder" -o ./tmp/output -c ./tmp/output/results.csv
+    ./test.sh -i "$img_folder" -o ./tmp/output -c ./tmp/output/results.csv -o ./tmp/output -c ./tmp/output/resultsK.csv -k "${k_source_dir}/${img_name}"
+    averageL=$(python calDiff.py "${output_dir}/results.csv" | grep "AverageL" | awk '{print $2}')
+    current_line=$(sed "${index}q;d" "$temp_result_file")
+    echo "${current_line} ${averageL}" >> "$result_file"
+    rm -rf ./tmp/output/*
+    ((index++))
+done
+
+rm "$temp_result_file"
+echo "Processing complete. Results stored in $result_file"

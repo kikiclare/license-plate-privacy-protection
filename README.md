@@ -100,3 +100,10 @@ python calDiff.py
 ```
 ---
 
+# 方法
+
+DP、psvfe直接改数据集路径运行即可。
+GAN：[text](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
+Mosaic：[text](https://github.com/we0091234/yolov8-plate)
+face:[text](https://github.com/hpc203/yolov8-face-landmarks-opencv-dnn)
+灭点检测：[text](https://github.com/SymenYang/Vanish-Point-Detection)
