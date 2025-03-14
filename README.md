@@ -45,6 +45,8 @@ python calmAP.py path/to/detection_results path/to/ground_truth_labels path/to/p
 ---
 ## 运行 ED 脚本处理视频数据
 
+data：文件夹下有：vehicle-detector/yolo-voc.weights；ocr/ocr-net.weights 文件过大未上传需要自己下载
+
 ### ① 运行 `run.sh` 脚本
 
 **目的**：处理视频数据，输出结果到指定目录，并记录结果到 CSV 文件中。
@@ -107,3 +109,4 @@ GAN：[text](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
 Mosaic：[text](https://github.com/we0091234/yolov8-plate)
 face:[text](https://github.com/hpc203/yolov8-face-landmarks-opencv-dnn)
 灭点检测：[text](https://github.com/SymenYang/Vanish-Point-Detection)
+
